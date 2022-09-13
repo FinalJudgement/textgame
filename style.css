@@ -33,70 +33,16 @@ main {
     font-size: 1.2rem;
 }
 
-
-
-
-
-#wrap {
-    width: 100%;
-}
-
-#dialogue {
-    box-sizing: border-box;
-    background-color: #2e2e2e;
-    color: white;
-    width: 100%;
-    height: 20vh;
-    max-height: 20vh;
-    padding: 20px;
-    vertical-align: top;
-}
-
-#windowOrganizer {
-    background-color: #424eb8;
-    width: 100%;
-    height: 70vh;
-    margin: 0 auto;
-}
-
-#main {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 55vh;
-}
-
-#menu {
-
-    background-color: rgb(84, 148, 209);
-    margin: 2%;
-    height: 80%;
-    width: 16%;
-
-}
-
-.menu-item {
-    background-color: rgba(21, 209, 46, 0.589);
-    height: 23%;
-    margin: 3%;
-    width: 94%;
-}
-
-.menu-item:hover {
-    background-color: rgba(10, 65, 17, 0.589);
-
-    color: rgba(255, 255, 255, 0.514);
-    border: 2px solid white;
-    box-shadow: 0px 0px 0px 5px;
-    transition: .3s;
-}
-
-#content {
-    align-self: center;
-    background-color: #ffffff;
-    width: 60%;
-    height: 80%;
-
+.cover {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.247);
+    top: 10%;
+    left: 50%;
+    transform: translateY(-56%);
+    transform: translateX(-50%);
+    width: 75vw;
+    height: 85vh;
+    z-index: 3;
 }
 
 #launch {
@@ -108,6 +54,7 @@ main {
     left: 50%;
     transform: translateY(-56%);
     transform: translateX(-50%);
+    z-index: 3;
 }
 
 #launch:hover {
@@ -118,15 +65,139 @@ main {
     transition: .3s;
 }
 
+#wrap {
+    width: 100%;
+}
+
+#windowOrganizer {
+    background-color: #424eb8;
+    width: 100%;
+    height: 70vh;
+    margin: 0 auto;
+}
+
+#main {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#menu {
+    align-self: baseline;
+    background-color: rgba(0, 255, 34, 0.315);
+    margin: 3% 2%;
+    padding: 2px;
+    height: 38x;
+    width: 80px;
+    border-radius: .8em;
+    z-index: 1;
+}
+
+#menu:hover {
+    background-color: rgba(81, 235, 102, 0.829);
+    color: rgba(255, 255, 255, 0.884);
+    box-shadow: 0px 0px 0px 2px;
+    transition: .3s;
+}
+
+.menu-item {
+    background-color: rgb(21, 209, 46);
+    height: 23%;
+    margin: 3%;
+    width: 94%;
+}
+
+.menu-item:hover {
+    background-color: rgba(10, 65, 17, 0.589);
+    color: rgba(255, 255, 255, 0.514);
+    border: 2px solid white;
+    box-shadow: 0px 0px 0px 5px;
+    transition: .3s;
+}
+
+.menu-ui {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(118, 155, 189);
+    top: 10%;
+    left: 50%;
+    height: 85vh;
+    width: 75vw;
+    z-index: 2;
+    transform: translateY(-56%);
+    transform: translateX(-50%);
+}
+
+.menu-ui button {
+    width: 10vw;
+    height: 5vh;
+    margin: .2px;
+    background-color: rgb(197, 197, 197);
+    border-radius: .3rem;
+}
+
+.info-window {
+    position: absolute;
+    background-color: rgb(199, 201, 182);
+    height: 85vh;
+    width: 86.5%;
+    top: 0%;
+    left: 13.4%;
+    z-index: 3;
+}
+
+.stat-style {
+    margin-left: 10px;
+    text-align: left;
+}
+
+.reset {
+    position: absolute;
+    background-color: rgba(167, 167, 167, 0.733);
+    top: 0%;
+    left: 50%;
+    transform: translateY(-56%);
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.reset p {
+    margin-top: 25%;
+}
+
+.reset button {
+    margin: 15px;
+}
+
+#content {
+    position: absolute;
+    background-color: #575757;
+    top: 0px;
+    width: 100%;
+    height: 90vh;
+}
+
 #choices {
-    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80%;
+    width: 20vw;
     vertical-align: top;
+    z-index: 1;
 }
 
 .choice {
-    background-color: rgba(192, 192, 192, 0.712);
-    height: 100%;
-    width: 25%;
+    background-color: rgba(0, 0, 0, 0.13);
+    color: rgb(255, 255, 255);
+    height: 30%;
+    width: 90%;
     font-size: 15px;
     font-weight: 800;
     overflow-y: auto;
@@ -137,24 +208,28 @@ main {
 .choice:hover {
     background-color: rgba(192, 192, 192, 0.301);
     color: rgba(255, 255, 255, 0.514);
-    border: 2px solid white;
     box-shadow: 0px 0px 0px 5px;
     transition: .3s;
 
+}
+
+#dialogue {
+    position: relative;
+    box-sizing: border-box;
+    background-color: #00000067;
+    color: white;
+    width: 100%;
+    height: 20vh;
+    max-height: 20vh;
+    padding: 20px;
+    vertical-align: top;
+    z-index: 1;
 }
 
 .invisible {
     visibility: hidden;
 }
 
-#option2 {
-    background-color: rgba(224, 28, 28, 0.712);
-}
-
-#option2:hover {
-    background-color: rgba(224, 28, 28, 0.384);
-    border: 2px solid white;
-}
 
 button {
     border-radius: 1.5em;

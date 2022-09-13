@@ -10,25 +10,38 @@
 </head>
 
 <body>
+    <button id="launch">Launch Game!</button>
     <h1>Text Game</h1>
     <main>
         <section class="ad">
             <p>Your Ad Goes Here</p>
         </section>
-        <section id="main">
+        <div id="wrap">
+
             <div id="dialogue">Welcome to a new text rpg experience!</div>
-            <div id="content"></div>
-            <div id="choices">
-                <button class="choice invisible" id="option1"></button>
-                <button class="choice invisible" id="option2"></button>
-                <button class="choice invisible" id="option3"></button>
+            <div id="windowOrganizer">
+                <section id="main">
+                    <div id="menu">
+                        <div id="character" class="menu-item">Character</div>
+                        <div class="menu-item">Inventory</div>
+                        <div class="menu-item">Abilities</div>
+                        <div class="menu-item">Save Locally</div>
+                    </div>
+                    <div id="content"></div>
+
+                </section>
+                <div id="choices">
+                    <button class="choice invisible" id="option1"></button>
+                    <button class="choice invisible" id="option2"></button>
+                    <button class="choice invisible" id="option3"></button>
+                </div>
             </div>
-        </section>
+        </div>
         <section class="ad">
             <p>Your Ad Goes Here</p>
         </section>
-        <button id="launch">Launch Game!</button>
     </main>
+
     <script src="app.js"></script>
 </body>
 

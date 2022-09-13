@@ -1,9 +1,15 @@
 //These variables are used to grab an element for manipulation.
 const launchButtonElement = document.querySelector('#launch');
 const dialogueElement = document.querySelector('#dialogue');
+const contentElement = document.querySelector('#content');
 const choiceButtonElements = document.querySelector('#choices');
 const choiceBtnsElement = document.querySelectorAll('.choice');
+const characterButtonElement = document.querySelector('#character')
 
+
+document.onclick = function () {
+    audio.play();
+}
 
 let characterState = {};
 
@@ -43,9 +49,13 @@ function showOption(option) {
 function selectOption(option) {
     const nextStoryNode = option.nextText;
     characterState = Object.assign(characterState, option.setState)
+    const click = new Audio("Sounds/click.wav");
+    click.play();
     showDialogue(nextStoryNode)
 }
 function failedRequirement(option) {
+    const click = new Audio("Sounds/neg.wav");
+    click.play();
     dialogueElement.innerHTML = option.requirementText;
 }
 
@@ -55,6 +65,15 @@ launchButtonElement.addEventListener('click', () => {
     startGame();
 })
 
+characterButtonElement.addEventListener('click', () => {
+    contentElement.innerHTML = `Class: ${characterState.class.name}<br>
+                        agility: ${characterState.class.agility}<br>
+                        strength: ${characterState.class.strength}<br>
+                        intelligence: ${characterState.class.intelligence}<br>
+                        speed: ${characterState.class.speed}<br>
+                        luck: ${characterState.class.luck}<br>
+    `;
+})
 // // this adds and event listener to wait for the launch button click
 // launchButtonElement.addEventListener('click', () => {
 //     //this for of loop is simply causing the 3 choice buttons on the bottom to appear
@@ -147,7 +166,17 @@ const story = [
             },
             {
                 text: 'Select Kage Clan',
-                setState: { assassin: true },
+                setState: {
+                    class: {
+                        name: 'assassin',
+                        assassin: true,
+                        agility: 15,
+                        strength: 5,
+                        intelligence: 8,
+                        speed: 10,
+                        luck: 10
+                    }
+                },
                 nextText: 7
 
             },
@@ -168,7 +197,9 @@ const story = [
             },
             {
                 text: 'Select Tusk Clan!',
-                setState: { warrior: true },
+                setState: {
+                    class: { warrior: true }
+                },
                 nextText: 7
             },
             {
@@ -212,7 +243,7 @@ const story = [
             {
                 text: '(assassin) pick pocket the bartender',
                 requirementText: 'You do not meet the requirement for this choice',
-                requiredState: (currentState) => currentState.assassin,
+                requiredState: (currentState) => currentState.class.assassin,
                 nextText: 8
             }
         ]

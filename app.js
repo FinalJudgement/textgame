@@ -86,6 +86,7 @@ launchButtonElement.addEventListener('click', () => {
     const song = new Audio("Sounds/launchSong.mp3");
     click.play();
     song.play();
+    song.volume = 0.8;
     startGame();
 })
 

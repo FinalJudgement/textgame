@@ -10,16 +10,28 @@ const menuButtonElement = document.querySelector('#menu');
 
 
 let characterState = {
-    info: {},
-    inventory: {},
-    abilities: {}
+    info: {
+        note: 'You have no character info yet'
+    },
+    inventory: {
+        note: 'You have no items in your inventory'
+    },
+    abilities: {
+        note: 'You have not learned any abilities yet'
+    }
 };
 
 function startGame() {
     characterState = {
-        info: {},
-        inventory: {},
-        abilities: {}
+        info: {
+            note: 'You have no character info yet'
+        },
+        inventory: {
+            note: 'You have no items in your inventory'
+        },
+        abilities: {
+            note: 'You have not learned any abilities yet'
+        }
     };
     showDialogue(1);
 }
@@ -70,18 +82,31 @@ launchButtonElement.addEventListener('click', () => {
     for (let ea of choiceBtnsElement) { ea.classList.toggle('invisible'); }
     launchButtonElement.classList.toggle('invisible');
     document.querySelector('.cover').remove();
+    const click = new Audio("Sounds/launch.wav");
+    const song = new Audio("Sounds/launchSong.mp3");
+    click.play();
+    song.play();
     startGame();
 })
 
 //This is the event listener for everything in the menu
+
 menuButtonElement.addEventListener('click', () => {
+    const click = new Audio("Sounds/menu.wav");
+    click.play();
     //this creates the menu interface
     const menu = document.createElement('div');
     menu.classList.add('menu-ui');
     // this creates the menu escape button
     const createBackButton = document.createElement('button')
     createBackButton.innerText = 'Back'
+    createBackButton.addEventListener('mouseover', () => {
+        const click = new Audio("Sounds/click.wav");
+        click.play();
+    })
     createBackButton.addEventListener('click', () => {
+        const click = new Audio("Sounds/click2.wav");
+        click.play();
         menu.remove();
     })
     menu.appendChild(createBackButton)
@@ -91,7 +116,13 @@ menuButtonElement.addEventListener('click', () => {
     for (let key in characterState) {
         const button = document.createElement('button');
         button.innerText = key;
+        button.addEventListener('mouseover', () => {
+            const click = new Audio("Sounds/click.wav");
+            click.play();
+        })
         button.addEventListener('click', () => {
+            const click = new Audio("Sounds/click2.wav");
+            click.play();
             const infoWindow = document.createElement('div');
             infoWindow.classList.add('info-window');
 
@@ -107,7 +138,13 @@ menuButtonElement.addEventListener('click', () => {
     //this creates the reset button
     const createResetButton = document.createElement('button');
     createResetButton.innerText = 'Reset Game';
+    createResetButton.addEventListener('mouseover', () => {
+        const click = new Audio("Sounds/click.wav");
+        click.play();
+    })
     createResetButton.addEventListener('click', () => {
+        const click = new Audio("Sounds/click2.wav");
+        click.play();
         const resetWarning = document.createElement('div');
         resetWarning.innerHTML = '<p>Are you sure you want to Reset? All progress will be lost.</p>'
         resetWarning.classList.add('reset')
@@ -115,7 +152,13 @@ menuButtonElement.addEventListener('click', () => {
 
         const yesBtn = document.createElement('button')
         yesBtn.innerText = 'Yes'
+        yesBtn.addEventListener('mouseover', () => {
+            const click = new Audio("Sounds/click.wav");
+            click.play();
+        })
         yesBtn.addEventListener('click', () => {
+            const click = new Audio("Sounds/menu.wav");
+            click.play();
             menu.remove()
             startGame()
 
@@ -123,8 +166,14 @@ menuButtonElement.addEventListener('click', () => {
         resetWarning.appendChild(yesBtn)
 
         const noBtn = document.createElement('button')
+        noBtn.addEventListener('mouseover', () => {
+            const click = new Audio("Sounds/click.wav");
+            click.play();
+        })
         noBtn.innerText = 'No'
         noBtn.addEventListener('click', () => {
+            const click = new Audio("Sounds/click2.wav");
+            click.play();
             resetWarning.remove()
         })
         resetWarning.appendChild(noBtn)
@@ -218,8 +267,12 @@ const story = [
                         luck: 8,
                         charisma: 8
                     },
-                    inventory: {},
-                    abilities: {}
+                    inventory: {
+                        note: 'You have no items in your inventory'
+                    },
+                    abilities: {
+                        note: 'You have not learned any abilities yet'
+                    }
                 },
                 nextText: 7
 
@@ -251,8 +304,12 @@ const story = [
                         luck: 8,
                         charisma: 8
                     },
-                    inventory: {},
-                    abilities: {}
+                    inventory: {
+                        note: 'You have no items in your inventory'
+                    },
+                    abilities: {
+                        note: 'You have not learned any abilities yet'
+                    }
                 },
                 nextText: 7
 
@@ -284,8 +341,12 @@ const story = [
                         luck: 8,
                         charisma: 8
                     },
-                    inventory: {},
-                    abilities: {}
+                    inventory: {
+                        note: 'You have no items in your inventory'
+                    },
+                    abilities: {
+                        note: 'You have not learned any abilities yet'
+                    }
                 },
                 nextText: 7
 

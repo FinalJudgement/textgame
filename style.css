@@ -59,7 +59,6 @@ main {
     left: 50%;
     transform: translateY(-56%);
     transform: translateX(-50%);
-    /* visibility: hidden; */
 }
 
 #launch:hover {
@@ -70,9 +69,13 @@ main {
     transition: .3s;
 }
 
-.choices {
-    background-color: rgba(192, 192, 192, 0.712);
+#choices {
     height: 20%;
+}
+
+.choice {
+    background-color: rgba(192, 192, 192, 0.712);
+    height: 100%;
     width: 25%;
     font-size: 15px;
     font-weight: 800;
@@ -80,7 +83,7 @@ main {
 
 }
 
-.choices:hover {
+.choice:hover {
     background-color: rgba(192, 192, 192, 0.301);
     color: rgba(255, 255, 255, 0.514);
     border: 2px solid white;

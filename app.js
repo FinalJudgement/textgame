@@ -84,9 +84,12 @@ launchButtonElement.addEventListener('click', () => {
     document.querySelector('.cover').remove();
     const click = new Audio("Sounds/launch.wav");
     const song = new Audio("Sounds/launchSong.mp3");
+    let volume = document.querySelector('#volume-knob');
+    volume.addEventListener('change', (e) => {
+        song.volume = e.currentTarget.value / 100;
+    })
     click.play();
     song.play();
-    song.volume = 0.8;
     startGame();
 })
 

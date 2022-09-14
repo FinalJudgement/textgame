@@ -427,18 +427,22 @@ const story = [
         options: [
             {
 
-                text: 'disabled',
+                text: 'Introduction',
+                imgSlide: 'img4.jpg'
 
             },
             {
-                text: 'Step Forth',
-                nextText: 9
+                text: 'Enter Name (Unavailable)',
+                nextText: 8,
+                imgSlide: 'img4.jpg'
             },
             {
-                text: '(assassin) pick pocket the bartender',
-                requirementText: 'You do not meet the requirement for this choice',
-                requiredState: (currentState) => currentState.info.class === "Assassin",
-                nextText: 9
+                text: 'Introduction',
+                imgSlide: 'img4.jpg'
+                // text: '(assassin) pick pocket the bartender',
+                // requirementText: 'You do not meet the requirement for this choice',
+                // requiredState: (currentState) => currentState.info.class === "Assassin",
+
             }
         ]
     },

@@ -102,6 +102,7 @@ launchButtonElement.addEventListener('click', () => {
     const click = new Audio("Sounds/launch.wav");
     const song = new Audio("Sounds/launchSong.mp3");
     let volume = document.querySelector('#volume-knob');
+
     volume.addEventListener('change', (e) => {
         song.volume = e.currentTarget.value / 100;
     })
@@ -219,114 +220,106 @@ menuButtonElement.addEventListener('click', () => {
 const story = [
     {
         id: 1,
-        dialogue: 'It is night fall. After a long journey through the country of purus, after fighting off fiends and enemies alike you find yourself tired, famished and low on water. You see a dimly lit town in the distance and decide to seek shelter for the night.',
+        dialogue: 'It is nightfall. After a long journey through the country of Purus, after fighting off fiends and enemies alike, you find yourself tired, hungry, and low on water. You see a dimly lit town in the distance and decide to seek shelter for the night.',
         options: [
             {
 
-                text: 'disabled'
+                text: 'Introduction',
+                imgSlide: 'img1.jpg'
             },
             {
-                text: 'Enter The Town',
+                text: 'Enter the town',
                 nextText: 2,
                 imgSlide: 'img2.jpg'
             },
             {
-                text: 'disabled'
+                text: 'Introduction',
+                imgSlide: 'img1.jpg'
             }
         ]
     },
     {
         id: 2,
-        dialogue: 'As you enter the town, you see what looks like a tavern. You say to yourself "Thank the heavens". as you stumble up the steps, you walk through the door. as you walk up to the bar, you see a fair maiden serving tables and can feel the gaze of the patrons upon you.',
+        dialogue: 'As you enter the town, you see what looks like a tavern. You say to yourself "Thank the heavens" as you stumble up the steps.',
         options: [
             {
 
-                text: 'disabled'
+                text: 'Introduction',
+                imgSlide: 'img2.jpg'
             },
             {
-                text: 'Sit at the bar',
+                text: 'Walk into the tavern',
                 nextText: 3,
-                imgSlide: ''
+                imgSlide: 'img3.jpg'
             },
             {
-                text: 'disabled'
+                text: 'Introduction',
+                imgSlide: 'img2.jpg'
             }
         ]
     },
     {
         id: 3,
-        dialogue: 'The bartender walks toward you, "woah, you look Horrible, let me get you drink, here it\'s on the house." so tell me, where are you from stranger?',
+        dialogue: 'You walk through the door, as you walk up to the bar, you see a fair maiden serving tables and can feel the gaze of the patrons upon you.',
         options: [
             {
 
-                text: 'disabled'
+                text: 'Introduction',
+                imgSlide: 'img3.jpg'
             },
             {
-                text: 'Choose Your Race',
-                nextText: 4
+                text: 'Sit at the bar',
+                nextText: 4,
+                imgSlide: 'img4.jpg'
             },
             {
-                text: 'disabled'
+                text: 'Introduction',
+                imgSlide: 'img3.jpg'
             }
         ]
     },
     {
         id: 4,
-        dialogue: 'The Famours Raven Trainers, Home to some of the worlds most lethal assassins. Masters of the shadow and stealth arts. This tribe relies on Agility to take down their foes as quick as possible, while mitigating the damage they receive.',
+        dialogue: 'The bartender walks toward you. "Greetings traveller, you look worse for wear, let me get you a drink, it\'s on the house. So tell me, where are you from stranger?"',
         options: [
             {
 
-                text: 'previous',
-                nextText: 6
+                text: 'Introduction',
+                imgSlide: 'img4.jpg'
             },
             {
-                text: 'Select Shadow Embers',
-                setState: {
-                    info: {
-                        class: 'Assassin',
-                        agility: 15,
-                        strength: 5,
-                        intelligence: 8,
-                        speed: 10,
-                        luck: 8,
-                        charisma: 8
-                    },
-                    inventory: {
-                        note: 'You have no items in your inventory'
-                    },
-                    abilities: {
-                        note: 'You have not learned any abilities yet'
-                    }
-                },
-                nextText: 7
-
+                text: 'Choose Your Race',
+                nextText: 5,
+                imgSlide: 'assassin.jpg'
             },
             {
-                text: 'next',
-                nextText: 5
+                text: 'Introduction',
+                imgSlide: 'img4.jpg'
             }
         ]
     },
     {
         id: 5,
-        dialogue: 'A clan of Tough warriors, with elite strength and defensive abilities, they use their battle cries to instill fear in their enemies.',
+        dialogue: 'The Shadows Ember, an elite class of assassins known for their cunning and prowess. They train bird of prey, and use their stealth to bring their enemies down swiftly.',
         options: [
             {
 
-                text: 'previous',
-                nextText: 4
+                text: 'Luna Fox',
+                nextText: 7,
+                imgSlide: 'mage.jpg'
             },
             {
-                text: 'Select Iron Dragon Knights',
+                text: 'Select Shadows Ember',
                 setState: {
                     info: {
-                        class: 'Warrior',
-                        agility: 15,
+                        class: 'Assassin',
+                        health: 120,
+                        agility: 10,
                         strength: 5,
-                        intelligence: 8,
-                        speed: 10,
+                        intelligence: 5,
+                        speed: 7,
                         luck: 8,
-                        charisma: 8
+                        charisma: 5
                     },
                     inventory: {
                         note: 'You have no items in your inventory'
@@ -335,34 +328,38 @@ const story = [
                         note: 'You have not learned any abilities yet'
                     }
                 },
-                nextText: 7
+                nextText: 8,
+                imgSlide: 'img4.jpg'
 
             },
             {
-                text: 'next',
-                nextText: 6
+                text: 'Dragon Knight',
+                nextText: 6,
+                imgSlide: 'warrior.jpg'
             }
         ]
     },
     {
         id: 6,
-        dialogue: 'A clan of Mystery, with the power to wield fire, ice, lightning, and wind. There are few that would oppose them.',
+        dialogue: 'The Dragon Knights, An elite class of warriors known for their strength and fearlessness. They use their battle cries to instill fear in their enemies and turn the tides of battle.',
         options: [
             {
 
-                text: 'previous',
-                nextText: 5
+                text: 'Shadows Ember',
+                nextText: 5,
+                imgSlide: 'assassin.jpg'
             },
             {
-                text: 'Select Luna Fox',
+                text: 'Dragon Knights (Unavailable)',
                 setState: {
                     info: {
-                        class: 'Mage',
-                        agility: 15,
-                        strength: 5,
-                        intelligence: 8,
-                        speed: 10,
-                        luck: 8,
+                        class: 'Warrior',
+                        health: 150,
+                        agility: 7,
+                        strength: 10,
+                        intelligence: 5,
+                        speed: 6,
+                        luck: 4,
                         charisma: 8
                     },
                     inventory: {
@@ -372,18 +369,61 @@ const story = [
                         note: 'You have not learned any abilities yet'
                     }
                 },
-                nextText: 7
+                nextText: 6,
+                imgSlide: 'warrior.jpg'
 
             },
             {
-                text: 'next',
-                nextText: 4
+                text: 'Luna Fox',
+                nextText: 7,
+                imgSlide: 'mage.jpg'
             }
         ]
     },
     {
         id: 7,
-        dialogue: 'Welcome Warrior to Text Game Online',
+        dialogue: 'The Luna Fox, A mysterious class mages known for their intelligence and magical ability, They wield the power of the elements to bring a quick end to their enemies. There are few that would oppose them.',
+        options: [
+            {
+
+                text: 'Dragon Knight',
+                nextText: 6,
+                imgSlide: 'warrior.jpg'
+            },
+            {
+                text: 'Luna Fox (Unavailable)',
+                setState: {
+                    info: {
+                        class: 'Mage',
+                        health: 100,
+                        agility: 5,
+                        strength: 5,
+                        intelligence: 10,
+                        speed: 6,
+                        luck: 7,
+                        charisma: 7
+                    },
+                    inventory: {
+                        note: 'You have no items in your inventory'
+                    },
+                    abilities: {
+                        note: 'You have not learned any abilities yet'
+                    }
+                },
+                nextText: 7,
+                imgSlide: 'mage.jpg'
+
+            },
+            {
+                text: 'Shadows Ember',
+                nextText: 5,
+                imgSlide: 'assassin.jpg'
+            }
+        ]
+    },
+    {
+        id: 8,
+        dialogue: 'Interesting, a member of the famous assassins guild? you must be quite skilled. My name is Daria, what is yours?',
         options: [
             {
 
@@ -392,19 +432,19 @@ const story = [
             },
             {
                 text: 'Step Forth',
-                nextText: 8
+                nextText: 9
             },
             {
                 text: '(assassin) pick pocket the bartender',
                 requirementText: 'You do not meet the requirement for this choice',
                 requiredState: (currentState) => currentState.info.class === "Assassin",
-                nextText: 8
+                nextText: 9
             }
         ]
     },
     {
-        id: 8,
-        dialogue: 'test',
+        id: 9,
+        dialogue: 'Welcome Warrior, This is a hero\'s Tale',
         options: [
             {
 

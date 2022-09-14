@@ -89,7 +89,7 @@ main {
 
 #menu {
     align-self: baseline;
-    background-color: rgba(0, 255, 34, 0.315);
+    background-color: rgba(196, 196, 196, 0.315);
     margin: 3% 2%;
     padding: 2px;
     height: 38x;
@@ -99,8 +99,8 @@ main {
 }
 
 #menu:hover {
-    background-color: rgba(81, 235, 102, 0.829);
-    color: rgba(255, 255, 255, 0.884);
+    background-color: rgba(192, 192, 192, 0.829);
+    color: rgba(73, 243, 30, 0.884);
     box-shadow: 0px 0px 0px 2px;
     transition: .3s;
 }
@@ -183,7 +183,7 @@ main {
 
 #content {
     position: absolute;
-    background-color: #575757;
+    background-color: #000000;
     top: 0px;
     width: 100%;
     height: 90vh;
@@ -243,8 +243,11 @@ button {
 
 
 .storyImg {
+    max-height: 100%;
     width: 100%;
-    height: 100%;
+    object-fit: contain;
+
+
     z-index: 2;
 }
 

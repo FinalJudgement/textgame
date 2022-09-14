@@ -33,16 +33,28 @@ function startGame() {
             note: 'You have not learned any abilities yet'
         }
     };
+    showSlide('img1.jpg')
     showDialogue(1);
+}
+
+function showSlide(storySlide) {
+    const createStorySlide = document.createElement('img');
+    createStorySlide.classList.add('storyImg')
+    createStorySlide.src = `images/${storySlide}`;
+    contentElement.removeChild(contentElement.firstChild);
+    contentElement.appendChild(createStorySlide);
 }
 
 function showDialogue(storyNodeIndex) {
     const storyNode = story.find(storyNodeDialogue => storyNodeDialogue.id === storyNodeIndex)
     dialogueElement.innerText = storyNode.dialogue
 
+
+
     while (choiceButtonElements.firstChild) {
         choiceButtonElements.removeChild(choiceButtonElements.firstChild);
     }
+
 
     storyNode.options.forEach((option) => {
         if (showOption(option)) {
@@ -59,6 +71,7 @@ function showDialogue(storyNodeIndex) {
             choiceButtonElements.appendChild(button);
         }
     })
+
 }
 
 function showOption(option) {
@@ -66,11 +79,15 @@ function showOption(option) {
 }
 function selectOption(option) {
     const nextStoryNode = option.nextText;
+    const nextStoryImage = option.imgSlide;
     characterState = Object.assign(characterState, option.setState)
     const click = new Audio("Sounds/click.wav");
-    click.play();
+    click.play(); const createStorySlide = document.createElement('img')
+
+    showSlide(nextStoryImage)
     showDialogue(nextStoryNode)
 }
+
 function failedRequirement(option) {
     const click = new Audio("Sounds/neg.wav");
     click.play();
@@ -162,6 +179,7 @@ menuButtonElement.addEventListener('click', () => {
         })
         yesBtn.addEventListener('click', () => {
             const click = new Audio("Sounds/menu.wav");
+            showSlide("img1.jpg")
             click.play();
             menu.remove()
             startGame()
@@ -209,7 +227,8 @@ const story = [
             },
             {
                 text: 'Enter The Town',
-                nextText: 2
+                nextText: 2,
+                imgSlide: 'img2.jpg'
             },
             {
                 text: 'disabled'
@@ -226,7 +245,8 @@ const story = [
             },
             {
                 text: 'Sit at the bar',
-                nextText: 3
+                nextText: 3,
+                imgSlide: ''
             },
             {
                 text: 'disabled'
